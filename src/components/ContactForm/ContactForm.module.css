@@ -1,0 +1,16 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.label {
+    margin-top: 20px;
+}
+
+.button {
+    width: 200px;
+    margin-top: 20px;
+    border: 1px solid;
+    border-radius: 2px;
+    background-color: white;
+}
