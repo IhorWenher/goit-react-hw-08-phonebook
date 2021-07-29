@@ -11,6 +11,20 @@ class App extends Component {
     filter: '',
   };
 
+  componentDidMount() {
+    const contacts = localStorage.getItem('contacts');
+    const parsed = JSON.parse(contacts);
+    if (parsed) {
+      this.setState({ contacts: parsed });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if (this.state.contacts !== prevState.contacts) {
+      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
+    }
+  }
+
   addContact = (name, number) => {
     if (this.state.contacts.find(contact => contact.name === name)) {
       alert('Attempt to create existing contact!');
@@ -41,20 +55,6 @@ class App extends Component {
       contact.name.toLowerCase().includes(normalizeFilter),
     );
   };
-
-  componentDidMount() {
-    const contacts = localStorage.getItem('contacts');
-    const parsed = JSON.parse(contacts);
-    if (parsed) {
-      this.setState({ contacts: parsed });
-    }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (this.state.contacts !== prevState.contacts) {
-      localStorage.setItem('contacts', JSON.stringify(this.state.contacts));
-    }
-  }
 
   render() {
     const { filter } = this.state;
