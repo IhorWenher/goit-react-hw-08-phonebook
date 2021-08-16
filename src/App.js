@@ -44,6 +44,7 @@ function App() {
       {visibleContacts.length >= 1 && (
         <Filter value={filter} onChange={changeFilter} />
       )}
+
       <ContactList contacts={visibleContacts} onDeleteContact={deleteContact} />
     </div>
   );
