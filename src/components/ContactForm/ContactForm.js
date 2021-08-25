@@ -1,3 +1,5 @@
+import React from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import * as actions from '../../redux/phonebook/phonebook-actions';
@@ -33,7 +35,7 @@ function ContactForm() {
       return alert('Enter data!');
     }
 
-    dispatch(actions.addContact(name, number));
+    dispatch(actions.addContactRequest({ id: uuidv4(), name, number }));
     reset();
   };
 

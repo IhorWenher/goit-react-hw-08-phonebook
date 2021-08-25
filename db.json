@@ -1,0 +1,13 @@
+{
+    "contacts": [{
+            "id": "f1b5cf1f-0794-424f-972d-2db13bc0bd6d",
+            "name": "Mango Brenson",
+            "number": "095751245"
+        },
+        {
+            "id": "8f6a2025-932a-4e9f-8949-bb0b3b7f7382",
+            "name": "Den Malkolm",
+            "number": "0966808575"
+        }
+    ]
+}

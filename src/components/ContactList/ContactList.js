@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import * as actions from '../../redux/phonebook/phonebook-actions';
+import operations from '../../redux/phonebook/phonebook-operation';
 import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
 import Styles from './ContactList.module.css';
 
@@ -18,7 +18,7 @@ const ContactList = () => {
             </span>
             <button
               type="button"
-              onClick={() => dispatch(actions.deleteContact(id))}
+              onClick={() => dispatch(operations.deleteContact(id))}
               className={Styles.button}
             >
               Delete

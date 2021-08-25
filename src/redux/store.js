@@ -1,7 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistStore,
-  persistReducer,
   FLUSH,
   REHYDRATE,
   PAUSE,
@@ -9,18 +7,11 @@ import {
   PURGE,
   REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
 import phoneBookReducers from './phonebook/phonebook-reducer';
-
-const contactsPersistConfig = {
-  key: 'contacts',
-  storage,
-  blacklist: ['filter'],
-};
 
 const store = configureStore({
   reducer: {
-    phonebook: persistReducer(contactsPersistConfig, phoneBookReducers),
+    phonebook: phoneBookReducers,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -31,8 +22,8 @@ const store = configureStore({
   devTools: process.env.NODE_ENV === 'development',
 });
 
-const persistor = persistStore(store);
+//const persistor = persistStore(store);
 
-const storePersistor = { store, persistor };
+//const storePersistor = { store, persistor };
 
-export default storePersistor;
+export default store;
