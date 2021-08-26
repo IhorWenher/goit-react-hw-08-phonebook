@@ -10,13 +10,16 @@ function App() {
     state => state.phonebook.contacts.length > 1,
   );
 
+  const loading = useSelector(state => state.phonebook.loading);
+
   return (
     <div className={Styles.container}>
       <h1 className={Styles.h1}>Phonebook</h1>
       <ContactForm />
-      <h2 className={Styles.h2}>Contacts</h2>
+      <h2 className={Styles.h2}>
+        Contacts{loading && <span className={Styles.span}>Loading...</span>}
+      </h2>
       {contactsLength && <Filter />}
-
       <ContactList />
     </div>
   );
