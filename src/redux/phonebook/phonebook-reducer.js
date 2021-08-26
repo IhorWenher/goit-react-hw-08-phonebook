@@ -34,6 +34,11 @@ const loadingReducer = createReducer(false, {
   [deleteContactError]: () => false,
 });
 
+const error = createReducer(null, {
+  [fetchContactError]: (_, { payload }) => payload,
+  [fetchContactSuccess]: () => null,
+});
+
 const filterReducer = createReducer('', {
   [filterContacts]: (_, { payload }) => payload,
 });
@@ -41,6 +46,7 @@ const filterReducer = createReducer('', {
 const phoneBookReducers = combineReducers({
   contacts: contactsReducer,
   loading: loadingReducer,
+  error,
   filter: filterReducer,
 });
 

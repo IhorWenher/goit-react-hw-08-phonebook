@@ -1,12 +1,18 @@
 import React from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import operations from '../../redux/phonebook/phonebook-operation';
 import { getVisibleContacts } from '../../redux/phonebook/phonebook-selectors';
 import Styles from './ContactList.module.css';
 
 const ContactList = () => {
-  const contacts = useSelector(getVisibleContacts);
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(operations.fetchContacts());
+  }, []);
+
+  const contacts = useSelector(getVisibleContacts);
 
   return (
     <ul className={Styles.list}>
