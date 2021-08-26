@@ -26,10 +26,7 @@ const fetchContacts = () => async dispatch => {
 };
 
 const addContact = contact => async dispatch => {
-  console.log('1');
-
   dispatch(addContactRequest());
-  console.log('2');
 
   try {
     const { data } = await axios.post('/contacts', contact);
@@ -45,6 +42,7 @@ const deleteContact = id => async dispatch => {
   try {
     const { data } = await axios.delete(`/contacts/${id}`);
     dispatch(deleteContactSuccess(data));
+    console.log(data);
   } catch (error) {
     dispatch(deleteContactError(error));
   }
