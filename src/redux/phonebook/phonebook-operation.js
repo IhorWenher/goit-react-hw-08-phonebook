@@ -39,8 +39,6 @@ const addContact = contact => async dispatch => {
 const deleteContact = id => async dispatch => {
   dispatch(deleteContactRequest());
 
-  console.log(id);
-
   try {
     await axios.delete(`/contacts/${id}`);
     dispatch(deleteContactSuccess(id));
