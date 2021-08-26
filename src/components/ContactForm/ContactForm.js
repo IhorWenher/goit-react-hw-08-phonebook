@@ -35,7 +35,9 @@ function ContactForm() {
       return alert('Enter data!');
     }
 
-    dispatch(actions.addContactRequest({ id: uuidv4(), name, number }));
+    const id = uuidv4();
+
+    dispatch(actions.addContactRequest({ id, name, number }));
     reset();
   };
 
