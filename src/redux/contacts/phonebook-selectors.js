@@ -1,5 +1,8 @@
 export const getContacts = state => state.phonebook.contacts;
 export const getFilter = state => state.phonebook.filter;
+export const getLoading = state => state.phonebook.loading;
+export const getContactsArrayLength = state =>
+  state.phonebook.contacts.length > 1;
 
 export const getVisibleContacts = state => {
   const contacts = getContacts(state);

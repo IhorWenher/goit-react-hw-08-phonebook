@@ -2,7 +2,7 @@ import React from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import operations from '../../redux/phonebook/phonebook-operation';
+import operations from '../../redux/phonebook/contacts/phonebook-operation';
 import Styles from './ContactForm.module.css';
 
 function ContactForm() {
