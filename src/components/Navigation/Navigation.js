@@ -8,22 +8,14 @@ const Navigation = () => {
   const isLogin = useSelector(authSelectors.getIsLoggedIn);
   return (
     <nav className={Styles.nav}>
-      <NavLink
-        to="/"
-        exact
-        className={Styles.link}
-        activeClassName={Styles.activeLink}
-      >
-        Start
-      </NavLink>
+      {!isLogin && (
+        <NavLink to="/" exact className={Styles.link}>
+          Phonebook
+        </NavLink>
+      )}
 
       {isLogin && (
-        <NavLink
-          to="/contacts"
-          exact
-          className={Styles.link2}
-          activeClassName={Styles.activeLink2}
-        >
+        <NavLink to="/contacts" exact className={Styles.link}>
           Contacts
         </NavLink>
       )}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
-//import { Form, Button } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 
 import Styles from './LoginView.module.css';
 
@@ -30,34 +30,34 @@ const LoginView = () => {
 
   return (
     <div className={Styles.container}>
-      <h1>Enter login</h1>
-      <form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
-        <label className={Styles.label}>
-          Email
-          <input
+      <h1 className={Styles.h1}>Enter login</h1>
+      <Form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
+        <Form.Group className="mb-3" controlId="formLoginEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
             type="email"
+            placeholder="Enter email"
             name="email"
             value={email}
             onChange={handleChange}
-            className={Styles.inputEmail}
           />
-        </label>
+        </Form.Group>
 
-        <label className={Styles.label}>
-          Password
-          <input
+        <Form.Group className="mb-3" controlId="formLoginPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
+            placeholder="Enter password"
             name="password"
             value={password}
             onChange={handleChange}
-            className={Styles.inputPassword}
           />
-        </label>
+        </Form.Group>
 
-        <button type="submit" className={Styles.button}>
+        <Button variant="primary" type="submit" className={Styles.button}>
           Enter
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
   );
 };

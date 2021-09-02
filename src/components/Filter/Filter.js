@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as actions from '../../redux/contacts/phonebook-actions';
 import { getFilter } from '../../redux/contacts/phonebook-selectors';
 import PropTypes from 'prop-types';
+
+import { Form } from 'react-bootstrap';
 import Styles from './Filter.module.css';
 
 const Filter = () => {
@@ -10,15 +12,15 @@ const Filter = () => {
   const dispatch = useDispatch();
 
   return (
-    <label className={Styles.label}>
-      Find contacts by name
-      <input
+    <div className={Styles.container}>
+      <Form.Label className={Styles.label}>Find contacts by name</Form.Label>
+      <Form.Control
         type="text"
         value={value}
         onChange={e => dispatch(actions.filterContacts(e.currentTarget.value))}
         className={Styles.input}
       />
-    </label>
+    </div>
   );
 };
 

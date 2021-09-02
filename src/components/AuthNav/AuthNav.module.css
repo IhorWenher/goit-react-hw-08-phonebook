@@ -1,8 +1,16 @@
+.container {
+    display: flex;
+    align-items: center;
+}
+
 .link {
     text-decoration: none;
 }
 
-.activeLink {
-    text-decoration: none;
-    color: red;
+.link+.link {
+    margin-left: 20px;
+}
+
+.button {
+    width: 110px;
 }

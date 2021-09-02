@@ -19,7 +19,7 @@ const ContactsView = () => {
 
   return (
     <div className={Styles.container}>
-      <h2 className={Styles.h2}>Phonebook</h2>
+      <h2 className={Styles.h2}>Phonebook page</h2>
       <ContactForm />
       <h2 className={Styles.h2}>
         {contactsLength !== 0 && 'Contacts'}

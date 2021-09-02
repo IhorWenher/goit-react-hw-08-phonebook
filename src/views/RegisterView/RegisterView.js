@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
 
+import { Form, Button } from 'react-bootstrap';
 import Styles from './RegisterView.module.css';
 
 const RegisterView = () => {
@@ -33,46 +34,46 @@ const RegisterView = () => {
 
   return (
     <div>
-      <h1>Registration</h1>
+      <h1 className={Styles.h1}>Registration</h1>
 
-      <form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
-        <label className={Styles.label}>
-          Name
-          <input
+      <Form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
+        <Form.Group className="mb-3" controlId="formRegName">
+          <Form.Label>Name</Form.Label>
+          <Form.Control
             type="text"
+            placeholder="Enter name"
             name="name"
             value={name}
             onChange={handleChange}
-            className={Styles.inputName}
           />
-        </label>
+        </Form.Group>
 
-        <label className={Styles.label}>
-          Email
-          <input
+        <Form.Group className="mb-3" controlId="formRegEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
             type="email"
+            placeholder="Enter email"
             name="email"
             value={email}
             onChange={handleChange}
-            className={Styles.inputEmail}
           />
-        </label>
+        </Form.Group>
 
-        <label className={Styles.label}>
-          Password
-          <input
+        <Form.Group className="mb-3" controlId="formRegPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
+            placeholder="Enter password"
             name="password"
             value={password}
             onChange={handleChange}
-            className={Styles.inputPassword}
           />
-        </label>
+        </Form.Group>
 
-        <button type="submit" className={Styles.button}>
+        <Button variant="primary" type="submit" className={Styles.button}>
           Register
-        </button>
-      </form>
+        </Button>
+      </Form>
     </div>
   );
 };

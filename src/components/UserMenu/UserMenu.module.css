@@ -13,6 +13,7 @@
 }
 
 .name {
+    color: rgb(56, 118, 201);
     font-weight: 700;
     margin-right: 12px;
 }

@@ -1,9 +1,16 @@
-.label {
-    display: block;
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: 20px;
-    text-align: center;
+}
+
+.label {
+    font-size: 15px;
 }
 
 .input {
+    width: 200px;
+    height: 38px;
     margin-left: 20px;
 }

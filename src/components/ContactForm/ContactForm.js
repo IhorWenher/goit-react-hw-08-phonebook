@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import operations from '../../redux/contacts/phonebook-operation';
+import { Form, Button } from 'react-bootstrap';
 import Styles from './ContactForm.module.css';
 
 function ContactForm() {
@@ -44,38 +45,39 @@ function ContactForm() {
   };
 
   return (
-    <form className={Styles.form} onSubmit={handleSubmit}>
-      <label className={Styles.label}>
-        Name
-        <input
+    <Form className={Styles.form} onSubmit={handleSubmit}>
+      <Form.Group className="mb-3" controlId="formContactsEmail">
+        <Form.Label>Name</Form.Label>
+        <Form.Control
           type="text"
           name="name"
+          placeholder="Enter name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
           required
           value={name}
           onChange={handleChange}
-          className={Styles.input1}
         />
-      </label>
+      </Form.Group>
 
-      <label className={Styles.label}>
-        Number
-        <input
+      <Form.Group className="mb-3" controlId="formContactsPassword">
+        <Form.Label>Number</Form.Label>
+        <Form.Control
           type="tel"
           name="number"
+          placeholder="Enter number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           required
           value={number}
           onChange={handleChange}
-          className={Styles.input2}
         />
-      </label>
-      <button className={Styles.button} type="submit">
+      </Form.Group>
+
+      <Button variant="primary" type="submit" className={Styles.button}>
         Add contact
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 }
 

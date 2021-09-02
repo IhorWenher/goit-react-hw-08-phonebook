@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import operations from '../../redux/contacts/phonebook-operation';
 import { getVisibleContacts } from '../../redux/contacts/phonebook-selectors';
+
+import { Button } from 'react-bootstrap';
 import Styles from './ContactList.module.css';
 
 const ContactList = () => {
@@ -22,13 +24,15 @@ const ContactList = () => {
             <span>
               {name}: {number}
             </span>
-            <button
+
+            <Button
+              variant="primary"
               type="button"
               onClick={() => dispatch(operations.deleteContact(id))}
-              className={Styles.button}
+              /* className={Styles.button} */
             >
               Delete
-            </button>
+            </Button>
           </li>
         );
       })}
