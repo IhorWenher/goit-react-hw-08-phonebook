@@ -1,8 +1,8 @@
 import React from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import operations from '../../redux/phonebook/contacts/phonebook-operation';
-import { getVisibleContacts } from '../../redux/phonebook/contacts/phonebook-selectors';
+import operations from '../../redux/contacts/phonebook-operation';
+import { getVisibleContacts } from '../../redux/contacts/phonebook-selectors';
 import Styles from './ContactList.module.css';
 
 const ContactList = () => {
