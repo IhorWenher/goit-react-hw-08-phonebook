@@ -25,7 +25,6 @@ const RegisterView = () => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    console.log({ name, email, password });
     dispatch(authOperations.register({ name, email, password }));
     setName('');
     setEmail('');
@@ -39,7 +38,13 @@ const RegisterView = () => {
       <form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
         <label className={Styles.label}>
           Name
-          <input type="text" name="name" value={name} onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            value={name}
+            onChange={handleChange}
+            className={Styles.inputName}
+          />
         </label>
 
         <label className={Styles.label}>
@@ -49,6 +54,7 @@ const RegisterView = () => {
             name="email"
             value={email}
             onChange={handleChange}
+            className={Styles.inputEmail}
           />
         </label>
 
@@ -59,10 +65,13 @@ const RegisterView = () => {
             name="password"
             value={password}
             onChange={handleChange}
+            className={Styles.inputPassword}
           />
         </label>
 
-        <button type="submit">Register</button>
+        <button type="submit" className={Styles.button}>
+          Register
+        </button>
       </form>
     </div>
   );

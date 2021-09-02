@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { authOperations } from '../../redux/auth';
+//import { Form, Button } from 'react-bootstrap';
 
 import Styles from './LoginView.module.css';
 
@@ -28,8 +29,8 @@ const LoginView = () => {
   };
 
   return (
-    <div>
-      <h1>LogIn page</h1>
+    <div className={Styles.container}>
+      <h1>Enter login</h1>
       <form onSubmit={handleSubmit} className={Styles.form} autoComplete="off">
         <label className={Styles.label}>
           Email
@@ -38,6 +39,7 @@ const LoginView = () => {
             name="email"
             value={email}
             onChange={handleChange}
+            className={Styles.inputEmail}
           />
         </label>
 
@@ -48,10 +50,13 @@ const LoginView = () => {
             name="password"
             value={password}
             onChange={handleChange}
+            className={Styles.inputPassword}
           />
         </label>
 
-        <button type="submit">Enter</button>
+        <button type="submit" className={Styles.button}>
+          Enter
+        </button>
       </form>
     </div>
   );

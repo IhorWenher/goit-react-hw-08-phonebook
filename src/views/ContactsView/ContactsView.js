@@ -1,4 +1,6 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
+import { Spinner } from 'react-bootstrap';
 
 import {
   getLoading,
@@ -12,14 +14,19 @@ import Filter from '../../components/Filter';
 import Styles from './ContactsView.module.css';
 
 const ContactsView = () => {
+  const loading = useSelector(getLoading);
+  const contactsLength = useSelector(getContactsArrayLength);
+
   return (
     <div className={Styles.container}>
       <h2 className={Styles.h2}>Phonebook</h2>
       <ContactForm />
       <h2 className={Styles.h2}>
-        Contacts{getLoading && <span className={Styles.span}>Loading...</span>}
+        {contactsLength !== 0 && 'Contacts'}
+        {loading && <Spinner animation="border" variant="primary" />}
       </h2>
-      {getContactsArrayLength && <Filter />}
+
+      {contactsLength > 1 && <Filter />}
       <ContactList />
     </div>
   );
