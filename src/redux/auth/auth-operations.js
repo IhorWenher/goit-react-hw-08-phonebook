@@ -1,4 +1,18 @@
 import axios from 'axios';
+/* import {
+  fetchUserRequest,
+  fetchUserSuccess,
+  fetchUserError,
+  registerRequest,
+  registerSuccess,
+  registerError,
+  logInRequest,
+  logInSuccess,
+  logInError,
+  logOutRequest,
+  logOutSuccess,
+  logOutError,
+} from './auth-actions'; */
 import { createAsyncThunk } from '@reduxjs/toolkit';
 //import { toast } from 'react-toastify';
 
@@ -12,6 +26,18 @@ const token = {
     axios.defaults.headers.common.Authorization = '';
   },
 };
+
+/* const register = user => async dispatch => {
+  dispatch(registerRequest());
+
+  try {
+    const { data } = await axios.post('/users/signup', user);
+    dispatch(registerSuccess(data));
+    token.set(data.token);
+  } catch (error) {
+    dispatch(registerError(error));
+  }
+}; */
 
 const register = createAsyncThunk('auth/register', async credentials => {
   try {
