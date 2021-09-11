@@ -58,13 +58,13 @@ const isLoggedIn = createReducer(false, {
 const setError = (_, { payload }) => {
   switch (payload) {
     case 400:
-      return 'Invalid data entered, please, change your inputs!';
+      return 'Incorrect data';
     case 401:
-      return 'You shouls authorize to perform this operation!';
+      return 'No authorize';
     case 500:
-      return 'Oops, something went wrong :( Please, try again!';
+      return 'Please, try again!';
     default:
-      return 'Unknown error';
+      return 'error';
   }
 };
 
