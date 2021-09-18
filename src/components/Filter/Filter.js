@@ -13,7 +13,7 @@ const Filter = () => {
 
   return (
     <div className={Styles.container}>
-      <Form.Label className={Styles.label}>Find contacts by name</Form.Label>
+      <Form.Label className={Styles.label}>Find contact by name</Form.Label>
       <Form.Control
         type="text"
         value={value}
